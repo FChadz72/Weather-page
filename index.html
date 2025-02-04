@@ -11,13 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
     <div id="Weather-container">
         <h2>Weather app</h2>
         <input type="text" id="city" placeholder="Enter city">
         <button onclick="getWeather()">search</button>
-        <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
-
-            <img id="weather-icon" alt="Weather Icon">
+        <img id="weather-icon" alt="Weather Icon">
             <div id="temp-div"></div>
             <div id="weather-info"></div>
             <div id="hourly-forecast"></div>
