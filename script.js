@@ -9,9 +9,9 @@ function getWeather() {
 
 
 const currentWeatherUrl = 
-'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}';
+'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${c8c22dd8cc6373803021915c6f5e30ca}';
 const forecastUrl = 
-'https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}';
+'https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${c8c22dd8cc6373803021915c6f5e30ca}';
 }
 
 function getWeather() {
