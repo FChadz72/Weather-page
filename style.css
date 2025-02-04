@@ -19,6 +19,12 @@ body {
     text-align: center;
 }
 
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+
 h2, label, p {
     color: #fff;
     margin: 8px 0;
