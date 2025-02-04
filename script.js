@@ -31,6 +31,11 @@ function getWeather() {
         });
 }
 
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+
 function displayWeather(data) {
     const tempDivInfo = document.getElementById('temp-div');
     const weatherInfoDiv = document.getElementById('weather-info');
