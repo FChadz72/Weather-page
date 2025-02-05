@@ -30,10 +30,35 @@ function getWeather() {
             alert('Error fetching forecast data. Please try again.');
         });
 }
-
 function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
+    const body = document.body;
+    const button = document.getElementById('dark-mode-toggle');
+
+    // Toggle dark mode class on the body
+    body.classList.toggle('dark-mode');
+
+    // Check if dark mode is active
+    const isDark = body.classList.contains('dark-mode');
+
+    // Save the preference
+    localStorage.setItem('darkMode', isDark);
+
+    // Update button text
+    button.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
 }
+
+// Apply dark mode if it was enabled before
+document.addEventListener('DOMContentLoaded', () => {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Set the correct button text on page load
+    document.getElementById('dark-mode-toggle').textContent = 
+        isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+});
 
 
 function displayWeather(data) {
