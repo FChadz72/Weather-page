@@ -66,7 +66,7 @@ function displayWeather(data) {
 
 function displayHourlyForecast(hourlyData) {
     const hourlyForecastDiv = document.getElementById('hourly-forecast');
-    const next24Hours = hourlyData.slice(0, 8); // Next 8 intervals (~3-hour gaps)
+    const next24Hours = hourlyData.slice(0, 12); // Next 12 intervals (~2-hour gaps)
 
     hourlyForecastDiv.innerHTML = ''; // Clear previous content
 
