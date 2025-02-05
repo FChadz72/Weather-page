@@ -65,9 +65,14 @@
 
         // 🔹 Logout User
         async function logoutUser() {
-            await signOut(auth);
-            alert("Logged out!");
-            window.location.href = "login.html";
+            try {
+                await signOut(auth);
+                alert("Logged out!");
+                window.location.href = "login.html"; // Redirect to login page
+            } catch (error) {
+                console.log("Logout failed:", error.message);
+                alert("Logout failed!");
+            }
         }
     </script>
 
