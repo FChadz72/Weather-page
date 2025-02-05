@@ -44,7 +44,7 @@ h2, label, p {
 
 /* Input Fields */
 input {
-    width: calc(100% - 32px); /* Decrease the width by more space */
+    width: 70% ; /* Decrease the width by more space */
     padding: 5px; /* Reduce padding for a smaller input */
     box-sizing: border-box;
     border-radius: 8px; /* Slightly smaller border radius */
