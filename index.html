@@ -12,10 +12,16 @@
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
         const auth = getAuth();
+        console.log("Firebase Auth Initialized:", auth);
+
+        // Check if the user is authenticated
         onAuthStateChanged(auth, (user) => {
             if (!user) {
+                console.log("User not logged in, redirecting to login...");
                 alert("You must be logged in!");
-                window.location.href = "login.html"; // Redirect to login page if not logged in
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                console.log("User is logged in:", user.email);
             }
         });
     </script>
@@ -47,12 +53,21 @@
 
         // 🔹 Logout User (for logout button)
         async function logoutUser() {
-            await signOut(auth);
-            alert("Logged out!");
-            window.location.href = "login.html"; // Redirect to login page
+            try {
+                await signOut(auth);
+                alert("Logged out!");
+                window.location.href = "login.html"; // Redirect to login page
+            } catch (error) {
+                console.log("Logout failed:", error.message);
+                alert("Logout failed!");
+            }
         }
+
+        // Add the logout button to trigger logout function
+        document.getElementById("logout-button")?.addEventListener("click", logoutUser);
     </script>
 
     <script src="./script.js"></script>
 </body>
 </html>
+
