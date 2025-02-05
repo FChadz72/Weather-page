@@ -52,25 +52,28 @@
   />
 </head>
 <body>
-  <!-- Dark Mode Toggle Button -->
-  <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
-  
-  <!-- Weather App Content -->
-  <div id="Weather-container">
-    <div class="search-box">
-      <i class="fa-solid fa-location-dot"></i>
-      <input type="text" id="city" placeholder="ENTER LOCATION" />
-      <button onclick="getWeather()">Search</button>
+  <div id="app-container">
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
 
-      <!--  Logout Button -->
-  <button id="logout-button">Logout</button>
-      
+    <!-- Logout Button -->
+    <button id="logout-button">Logout</button>
+
+    <!-- Weather App Content -->
+    <div id="weather-container">
+      <div class="search-box">
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" id="city" placeholder="ENTER LOCATION" />
+        <button onclick="getWeather()">Search</button>
+      </div>
       <img id="weather-icon" alt="Weather Icon" style="display:none;" />
       <div id="temp-div"></div>
       <div id="weather-info"></div>
       <div id="hourly-forecast"></div>
     </div>
   </div>
+</body>
+
 
   <!-- Firebase SDK AND Authentication: Logout Functionality -->
   <script type="module">
