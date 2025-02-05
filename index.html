@@ -6,6 +6,17 @@
     <title>Weather app</title>
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
+    <script type="module">
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            alert("You must be logged in!");
+            window.location.href = "login.html";
+        }
+    });
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
