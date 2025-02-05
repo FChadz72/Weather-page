@@ -3,74 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Weather app</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
+
+    <!-- Firebase Authentication -->
+    <script type="module">
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const auth = getAuth();
+        console.log("Firebase Auth Initialized:", auth);
+
+        // Check if the user is authenticated
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                console.log("User not logged in, redirecting to login...");
+                alert("You must be logged in!");
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                console.log("User is logged in:", user.email);
+            }
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
 
-    <h2>Login</h2>
-    <form id="login-form">
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-
-    <h3>Don't have an account? <button onclick="registerUser()">Register</button></h3>
+    <div id="Weather-container">
+        <div class="search-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" id="city" placeholder="ENTER LOCATION">
+            <button onclick="getWeather()">Search</button>
+            <img id="weather-icon" alt="Weather Icon">
+            <div id="temp-div"></div>
+            <div id="weather-info"></div>
+            <div id="hourly-forecast"></div>
+        </div>
+    </div>
 
     <!-- Firebase SDK -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut }
-            from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-        // 🔥 Firebase Config
-        const firebaseConfig = {
-            apiKey: "AIzaSyBS6cfjByBKIz10ZhmQuaXoyQdw9wiF8_k",
-            authDomain: "weather-app-d5164.firebaseapp.com",
-            projectId: "weather-app-d5164",
-            storageBucket: "weather-app-d5164.appspot.com",
-            messagingSenderId: "230640509044",
-            appId: "1:230640509044:web:69248f831c66f0d660b121"
-        };
+        const auth = getAuth();
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // 🔹 Register User (with form)
-        async function registerUser() {
-            const email = prompt("Enter your email:");
-            const password = prompt("Enter your password:");
-            try {
-                await createUserWithEmailAndPassword(auth, email, password);
-                alert("User registered successfully!");
-            } catch (error) {
-                alert("Registration failed: " + error.message);
-            }
-        }
-
-        // 🔹 Login User
-        document.getElementById("login-form").addEventListener("submit", async function(event) {
-            event.preventDefault(); // Prevent page refresh
-
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                alert("Login successful!");
-                window.location.href = "index.html"; // Redirect to weather page
-            } catch (error) {
-                alert("Login failed: " + error.message);
-            }
-        });
-
-        // 🔹 Logout User
+        // 🔹 Logout User (for logout button)
         async function logoutUser() {
-            await signOut(auth);
-            alert("Logged out!");
-            window.location.href = "login.html";
+            try {
+                await signOut(auth);
+                alert("Logged out!");
+                window.location.href = "login.html"; // Redirect to login page
+            } catch (error) {
+                console.log("Logout failed:", error.message);
+                alert("Logout failed!");
+            }
         }
+
+        // Add the logout button to trigger logout function
+        document.getElementById("logout-button")?.addEventListener("click", logoutUser);
     </script>
 
+    <script src="./script.js"></script>
 </body>
 </html>
+
 
