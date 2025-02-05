@@ -49,7 +49,7 @@ input {
     box-sizing: border-box;
     border-radius: 8px; /* Slightly smaller border radius */
     border: 1px solid white;
-    margin-top: 10px; /* Reduce the margin to make it more compact */
+    margin-top: 8px; /* Reduce the margin to make it more compact */
     background: #fff;
     color: #333;
     font-size: 14px; /* Adjust the font size to make text fit better */
