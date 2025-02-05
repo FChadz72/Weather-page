@@ -44,15 +44,17 @@ h2, label, p {
 
 /* Input Fields */
 input {
-    width: calc(100% - 16px);
-    padding: 8px;
+    width: calc(100% - 32px); /* Decrease the width by more space */
+    padding: 5px; /* Reduce padding for a smaller input */
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 8px; /* Slightly smaller border radius */
     border: 1px solid white;
-    margin-top: 20px;
+    margin-top: 10px; /* Reduce the margin to make it more compact */
     background: #fff;
     color: #333;
+    font-size: 14px; /* Adjust the font size to make text fit better */
 }
+
 
 /* Buttons */
 button {
