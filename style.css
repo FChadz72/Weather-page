@@ -19,7 +19,6 @@ body {
     border-radius: 18px;
     transition: 0.6s ease-out;
     text-align: center;
-    color: black;
 }
 
 /* Dark Mode */
@@ -35,8 +34,12 @@ body {
 
 /* Headings */
 h2, label, p {
-    color: #fff;
+    color: #333;
     margin: 8px 0;
+}
+
+.dark-mode h2, .dark-mode label, .dark-mode p {
+    color: white;
 }
 
 /* Input Fields */
@@ -112,7 +115,6 @@ button:hover {
 #temp-div p {
     font-size: 60px;
     margin-top: -30px;
-    color: black;
 }
 
 .dark-mode #temp-div p {
@@ -121,7 +123,6 @@ button:hover {
 
 #weather-info {
     font-size: 20px;
-    color: black;
 }
 
 .dark-mode #weather-info {
@@ -166,24 +167,21 @@ button:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* ✅ Weather Details (Humidity, Description, etc.) */
+/* Weather Details (Humidity, Description, etc.) */
 #weather-details {
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
     border-radius: 10px;
-    color: black;
-    display: block; /* Ensure it is always visible */
+    display: block;
 }
 
-/* Ensure visibility in both modes */
 #humidity,
 #description,
 #wind-speed {
     font-size: 18px;
     margin-top: 10px;
     color: black;
-    display: block; /* Ensure it is always visible */
 }
 
 .dark-mode #humidity,
@@ -194,7 +192,11 @@ button:hover {
 
 /* Heading for Hourly Forecast */
 #hourly-heading {
-    color: #fff;
+    color: #333;
     margin-top: 10px;
+}
+
+.dark-mode #hourly-heading {
+    color: white;
 }
 
