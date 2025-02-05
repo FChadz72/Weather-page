@@ -19,7 +19,7 @@ body {
     border-radius: 18px;
     transition: 0.6s ease-out;
     text-align: center;
-    color: black; /* Ensure text is visible */
+    color: black;
 }
 
 /* Dark Mode */
@@ -108,7 +108,7 @@ button:hover {
     color: #333;
 }
 
-/* Weather Data Styling */
+/* Weather Data */
 #temp-div p {
     font-size: 60px;
     margin-top: -30px;
@@ -166,29 +166,35 @@ button:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Fix for Hidden Weather Elements */
+/* ✅ Weather Details (Humidity, Description, etc.) */
 #weather-details {
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
     border-radius: 10px;
     color: black;
+    display: block; /* Ensure it is always visible */
 }
 
 /* Ensure visibility in both modes */
 #humidity,
-#description {
+#description,
+#wind-speed {
     font-size: 18px;
     margin-top: 10px;
     color: black;
+    display: block; /* Ensure it is always visible */
 }
 
 .dark-mode #humidity,
-.dark-mode #description {
+.dark-mode #description,
+.dark-mode #wind-speed {
     color: white;
 }
 
+/* Heading for Hourly Forecast */
 #hourly-heading {
     color: #fff;
     margin-top: 10px;
 }
+
