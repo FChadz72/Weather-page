@@ -13,14 +13,16 @@
 <body>
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
     <div id="Weather-container">
-        <h2>Weather app</h2>
-        <i class="fa-solid fa-location-dot"></i>
-        <input type="text" id="city" placeholder="Enter a location">
-        <button onclick="getWeather()">search</button>
-        <img id="weather-icon" alt="Weather Icon">
-            <div id="temp-div"></div>
-            <div id="weather-info"></div>
-            <div id="hourly-forecast"></div>
+        <div class="search-box">
+           <h2>Weather app</h2>
+           <i class="fa-solid fa-location-dot"></i>
+           <input type="text" id="city" placeholder="Enter a location">
+           <button onclick="getWeather()">search</button>
+           <img id="weather-icon" alt="Weather Icon">
+              <div id="temp-div"></div>
+              <div id="weather-info"></div>
+              <div id="hourly-forecast"></div>
+        </div>     
     </div>
     <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
