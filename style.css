@@ -9,16 +9,40 @@ body {
 }
 
 #weather-container {
-    background: rgba(255, 255, 255, 0.3);
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
+    background: #fff;
+    width: 400px;
+    height: 105px;
+    position: relative;
+    padding: 28px 32px;
+    overflow: hidden;
+    border-radius: 18px;
+    transition: 0.6s ease-out
 }
 
+.search-box {
+    width: 100%
+    height: min-content;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.search-box input {
+    color; #86283D;
+    width: 80%;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-left: 32px;
+}
+
+.search-box input::placeholder {
+    font-size: 20px;
+    font-weight: 500
+    color: #86283d;
+    text-transform: capitalize;
+    
+    
 .dark-mode {
     background-color: #121212;
     color: white;
