@@ -54,10 +54,7 @@
 <body>
   <!-- Dark Mode Toggle Button -->
   <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
-
-  <!--  Logout Button -->
-  <button id="logout-button">Logout</button>
-
+  
   <!-- Weather App Content -->
   <div id="Weather-container">
     <div class="search-box">
@@ -87,6 +84,9 @@
         alert("Logout failed!");
       }
     }
+
+    <!--  Logout Button -->
+  <button id="logout-button">Logout</button>
 
     // This will Attach the logout function to the logout button if it exists, I assume this would be in your css file??
     document.getElementById("logout-button")?.addEventListener("click", logoutUser);
