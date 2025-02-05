@@ -1,0 +1,10 @@
+ const firebaseConfig = {
+            apiKey: "AIzaSyBS6cfjByBKIz10ZhmQuaXoyQdw9wiF8_k",
+            authDomain: "weather-app-d5164.firebaseapp.com",
+            projectId: "weather-app-d5164",
+            storageBucket: "weather-app-d5164.appspot.com",
+            messagingSenderId: "230640509044",
+            appId: "1:230640509044:web:69248f831c66f0d660b121"
+        };
+
+export default firebaseConfig;
