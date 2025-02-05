@@ -14,23 +14,34 @@
         <button type="submit">Login</button>
     </form>
 
-    <h3>Don't have an account? <a href="register.html">Register</a></h3> <!-- Link to register page -->
+    <h3>Don't have an account? <a href="register.html">Register</a></h3> <!-- Link to registration page -->
 
     <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-        const firebaseConfig = { /* your Firebase config */ };
-        const auth = getAuth();
+        const firebaseConfig = {
+            apiKey: "AIzaSyBS6cfjByBKIz10ZhmQuaXoyQdw9wiF8_k",
+            authDomain: "weather-app-d5164.firebaseapp.com",
+            projectId: "weather-app-d5164",
+            storageBucket: "weather-app-d5164.appspot.com",
+            messagingSenderId: "230640509044",
+            appId: "1:230640509044:web:69248f831c66f0d660b121"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
 
         document.getElementById("login-form").addEventListener("submit", async function(event) {
-            event.preventDefault(); 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            event.preventDefault();  // Prevent page reload on submit
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
 
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 alert("Login successful!");
-                window.location.href = "index.html";
+                window.location.href = "index.html";  // Redirect to weather page
             } catch (error) {
                 alert("Login failed: " + error.message);
             }
@@ -39,4 +50,3 @@
 
 </body>
 </html>
-
