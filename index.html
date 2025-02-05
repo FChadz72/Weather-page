@@ -1,73 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather app</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
 
-    <!-- Firebase Authentication -->
-    <script type="module">
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+  <!-- Firebase App Initialszation -->
+  <script type="module">
+    // Import the Firebase App module and initialise the app
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
 
-        const auth = getAuth();
-        console.log("Firebase Auth Initialized:", auth);
+    const firebaseConfig = {
+      apiKey: "AIzaSyBS6cfjByBKIz10ZhmQuaXoyQdw9wiF8_k",  
+      authDomain: "weather-app-d5164.firebaseapp.com",
+      projectId: "weather-app-d5164",
+      storageBucket: "weather-app-d5164.appspot.com",
+      messagingSenderId: "230640509044",
+      appId: "1:230640509044:web:69248f831c66f0d660b121"
+    };
 
-        // Check if the user is authenticated
-        onAuthStateChanged(auth, (user) => {
-            if (!user) {
-                console.log("User not logged in, redirecting to login...");
-                alert("You must be logged in!");
-                window.location.href = "login.html"; // Redirect to login page
-            } else {
-                console.log("User is logged in:", user.email);
-            }
-        });
-    </script>
+    // Initialize Firebase
+    initializeApp(firebaseConfig);
+  </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <!-- Firebase Authentication: This will Check Login Status -->
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    const auth = getAuth();
+    console.log("Firebase Auth Initialized:", auth);
+
+    // This will Redirect the user if they are not logged in
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        console.log("User not logged in, redirecting to login...");
+        alert("You must be logged in!");
+        window.location.href = "login.html";
+      } else {
+        console.log("User is logged in:", user.email);
+      }
+    });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-    <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+  <!-- Dark Mode Toggle Button -->
+  <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
 
-    <div id="Weather-container">
-        <div class="search-box">
-            <i class="fa-solid fa-location-dot"></i>
-            <input type="text" id="city" placeholder="ENTER LOCATION">
-            <button onclick="getWeather()">Search</button>
-            <img id="weather-icon" alt="Weather Icon">
-            <div id="temp-div"></div>
-            <div id="weather-info"></div>
-            <div id="hourly-forecast"></div>
-        </div>
+  <!--  Logout Button -->
+  <button id="logout-button">Logout</button>
+
+  <!-- Weather App Content -->
+  <div id="Weather-container">
+    <div class="search-box">
+      <i class="fa-solid fa-location-dot"></i>
+      <input type="text" id="city" placeholder="ENTER LOCATION" />
+      <button onclick="getWeather()">Search</button>
+      <img id="weather-icon" alt="Weather Icon" style="display:none;" />
+      <div id="temp-div"></div>
+      <div id="weather-info"></div>
+      <div id="hourly-forecast"></div>
     </div>
+  </div>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+  <!-- Firebase SDK AND Authentication: Logout Functionality -->
+  <script type="module">
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-        const auth = getAuth();
+    const auth = getAuth();
 
-        // 🔹 Logout User (for logout button)
-        async function logoutUser() {
-            try {
-                await signOut(auth);
-                alert("Logged out!");
-                window.location.href = "login.html"; // Redirect to login page
-            } catch (error) {
-                console.log("Logout failed:", error.message);
-                alert("Logout failed!");
-            }
-        }
+    async function logoutUser() {
+      try {
+        await signOut(auth);
+        alert("Logged out!");
+        window.location.href = "login.html";
+      } catch (error) {
+        console.error("Logout failed:", error.message);
+        alert("Logout failed!");
+      }
+    }
 
-        // Add the logout button to trigger logout function
-        document.getElementById("logout-button")?.addEventListener("click", logoutUser);
-    </script>
+    // This will Attach the logout function to the logout button if it exists, I assume this would be in your css file??
+    document.getElementById("logout-button")?.addEventListener("click", logoutUser);
+  </script>
 
-    <script src="./script.js"></script>
+  <!--  ## linkted back to Your Weather Script
+ -->
+  <script src="./script.js"></script>
 </body>
 </html>
-
