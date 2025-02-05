@@ -1,5 +1,6 @@
+/* General body styling */
 body {
-    background: #008631;
+    background: #008631; /* Same green background */
     font-family: 'Kumbh Sans', sans-serif;
     display: flex;
     align-items: center;
@@ -8,138 +9,74 @@ body {
     margin: 0;
 }
 
-#weather-container {
+/* Form container */
+#form-container {
     background: #fff;
     width: 400px;
-    height: 105px;
-    position: relative;
-    padding: 28px 32px;
-    overflow: hidden;
+    padding: 30px;
     border-radius: 18px;
-    transition: 0.6s ease-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.dark-mode {
-    background-color: #121212;
-    color: white;
+/* Headings */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
-h2, label, p {
-    color: #fff;
-    margin: 8px 0;
-}
-
+/* Form fields */
 input {
     width: calc(100% - 16px);
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccc;
     border-radius: 10px;
-    border: 1px solid white;
-    margin-top: 20px;
-    background: #fff;
-    color: #333;
+    margin-bottom: 15px;
+    font-size: 16px;
+    display: block;
+    margin: auto;
 }
 
+/* Button styling */
 button {
-    background: #debff4;
+    background: #41dc8e; /* Green button */
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 20px;
-    width: 100px;
-    font-size: 15px;
+    width: 100%;
+    font-size: 16px;
     transition: background 0.3s ease;
 }
 
 button:hover {
-    background: #41dc8e;
+    background: #008631; /* Darker green */
 }
 
-/* Add these styles to your style.css */
-
-/* Positioning the logout button at the top-right corner */
-#logout-button {
-  position: fixed; /* Fixed positioning will keep it in the same place even when scrolling */
-  top: 10px; /* Adjust this to set the distance from the top */
-  right: 10px; /* Adjust this to set the distance from the right */
-  padding: 10px 20px; /* Padding to make the button larger and more clickable */
-  background-color: #ff4c4c; /* Set the background colour (you can change this) */
-  color: white; /* Button text colour */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Optional: rounded corners */
-  font-size: 16px; /* Font size of the button text */
-  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
+/* Register button */
+#register-button {
+    background: #debff4; /* Light purple to match other buttons */
 }
 
-#logout-button:hover {
-  background-color: #ff1a1a; /* Darker shade on hover */
+#register-button:hover {
+    background: #9b59b6; /* Darker purple */
 }
 
-/* Dark Mode Button */
-#dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.dark-mode #dark-mode-toggle {
-    background-color: #fff;
+/* Links and text */
+p {
     color: #333;
+    font-size: 14px;
 }
 
-#temp-div p {
-    font-size: 60px;
-    margin-top: -30px;
+p a {
+    color: #41dc8e;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-#weather-info {
-    font-size: 20px;
+p a:hover {
+    text-decoration: underline;
 }
 
-#weather-icon {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 10px;
-    display: none;
-}
-
-#hourly-forecast {
-    margin-top: 50px;
-    overflow-x: auto;
-    white-space: nowrap;
-    display: flex;
-    justify-content: space-between;
-}
-
-.hourly-item {
-    flex: 0 0 auto;
-    width: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 10px;
-    color: white;
-}
-
-.hourly-item img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-#hourly-heading {
-    color: #fff;
-    margin-top: 10px;
-}
 
