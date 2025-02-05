@@ -42,6 +42,13 @@ body {
     color: #86283d;
     text-transform: capitalize;
 }
+
+.search-box i{
+    posittion: absolute;
+    color: #86283D;
+    font-size: 28px;
+}
+
     
 .dark-mode {
     background-color: #121212;
