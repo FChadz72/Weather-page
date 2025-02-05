@@ -4,44 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the same CSS -->
 </head>
 <body>
 
-    <h2>Login</h2>
-    <form id="login-form">
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
+    <div id="form-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
 
-    <h3>Don't have an account? <a href="register.html">Register</a></h3> <!-- Link to registration page -->
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+    </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword } 
+            from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyBS6cfjByBKIz10ZhmQuaXoyQdw9wiF8_k",
-            authDomain: "weather-app-d5164.firebaseapp.com",
-            projectId: "weather-app-d5164",
-            storageBucket: "weather-app-d5164.appspot.com",
-            messagingSenderId: "230640509044",
-            appId: "1:230640509044:web:69248f831c66f0d660b121"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
         document.getElementById("login-form").addEventListener("submit", async function(event) {
-            event.preventDefault();  // Prevent page reload on submit
-
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
             try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                await signInWithEmailAndPassword(auth, email, password);
                 alert("Login successful!");
-                window.location.href = "index.html";  // Redirect to weather page
+                window.location.href = "index.html";
             } catch (error) {
                 alert("Login failed: " + error.message);
             }
