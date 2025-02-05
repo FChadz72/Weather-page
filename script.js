@@ -42,6 +42,7 @@ function displayWeather(data) {
     const weatherIcon = document.getElementById('weather-icon');
     const hourlyForecastDiv = document.getElementById('hourly-forecast');
 
+
     // Clear previous content
     weatherInfoDiv.innerHTML = '';
     hourlyForecastDiv.innerHTML = '';
@@ -55,9 +56,19 @@ function displayWeather(data) {
         const description = data.weather[0].description;
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
+        const windSpeed = data.wind.speed;
+        const humidity = data.main.humidity;
+        const feelsLike = Math.round(data.main.feels_like);
+
 
         tempDivInfo.innerHTML = `<p>${temperature}°C</p>`;
-        weatherInfoDiv.innerHTML = `<p>${cityName}</p><p>${description}</p>`;
+        weatherInfoDiv.innerHTML = `
+        <p>${cityName}</p>
+        <p>${description}</p>
+        <p>Feels Like: ${feelsLike}°C</p>
+        <p>Humidity: ${humidity}%</p>
+        <p>Wind Speed: ${windSpeed} m/s</p>
+`;
         weatherIcon.src = iconUrl;
         weatherIcon.alt = description;
         weatherIcon.style.display = 'block';
