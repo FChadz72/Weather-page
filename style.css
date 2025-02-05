@@ -23,7 +23,7 @@ body {
     width: 100%;
     height: min-content;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -39,22 +39,20 @@ body {
 .search-box input::placeholder {
     font-size: 20px;
     font-weight: 500;
-    color: #86283d;
+    color: #86283D;
     text-transform: capitalize;
 }
 
-.search-box i{
-    posittion: absolute;
+.search-box i {
+    position: absolute; /* Fixed typo */
     color: #86283D;
     font-size: 28px;
 }
 
-    
 .dark-mode {
     background-color: #121212;
     color: white;
 }
-
 
 h2, label, p {
     color: #fff;
@@ -68,24 +66,28 @@ input {
     border-radius: 10px;
     border: 1px solid white;
     margin-top: 20px;
+    background: #fff;
+    color: #333;
 }
 
 button {
     background: #debff4;
     color: white;
-    padding:10px;
+    padding: 10px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
     width: 100px;
     font-size: 15px;
+    transition: background 0.3s ease;
 }
 
 button:hover {
     background: #41dc8e;
 }
 
+/* Dark Mode Button */
 #dark-mode-toggle {
     position: fixed;
     top: 10px;
@@ -98,6 +100,11 @@ button:hover {
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
+}
+
+.dark-mode #dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
 }
 
 #temp-div p {
@@ -113,7 +120,6 @@ button:hover {
     width: 200px;
     height: 200px;
     margin: 0 auto 10px;
-    margin-bottom: 0;
     display: none;
 }
 
