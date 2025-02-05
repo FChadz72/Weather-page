@@ -2,22 +2,15 @@
 body {
     background: #008631;
     font-family: 'Kumbh Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-    display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-/* Center the main content without affecting buttons */
-#app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 80px; /* Adjust this value as needed */
-}
-
-/* Weather App Container */
+/* Weather Container */
 #weather-container {
     background: #fff;
     width: 400px;
@@ -28,62 +21,19 @@ body {
     text-align: center;
 }
 
-/* Weather Info */
-#weather-info {
-    font-size: 20px;
-}
-
-#temp-div p {
-    font-size: 60px;
-    margin-top: -30px;
-}
-
-#weather-icon {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 10px;
-    display: none;
-}
-
-/* Hourly Forecast */
-#hourly-forecast {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.hourly-item {
-    flex: 0 0 auto;
-    width: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 10px;
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
     color: white;
 }
 
-.hourly-item img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px;
+/* Headings */
+h2, label, p {
+    color: #fff;
+    margin: 8px 0;
 }
 
-/* Search Box */
-.search-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Ensure search input and button align properly */
-.search-box input {
-    flex-grow: 1;
-}
-
-/* Inputs */
+/* Input Fields */
 input {
     width: calc(100% - 16px);
     padding: 8px;
@@ -113,32 +63,6 @@ button:hover {
     background: #41dc8e;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-.dark-mode #dark-mode-toggle {
-    background-color: #fff;
-    color: #333;
-}
-
-/* Dark Mode Button */
-#dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
 /* Logout Button */
 #logout-button {
     position: fixed;
@@ -158,55 +82,78 @@ button:hover {
     background-color: #ff1a1a;
 }
 
-/* Login & Register Page Styling */
-#login-container, #register-container {
-    background: #fff;
-    width: 350px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-#login-container h2, #register-container h2 {
-    color: #008631;
-}
-
-#login-container input, #register-container input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#login-container button, #register-container button {
-    width: 100%;
-    background: #008631;
+/* Dark Mode Button */
+#dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
     color: white;
-    padding: 10px;
     border: none;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-#login-container button:hover, #register-container button:hover {
-    background: #006622;
-}
-
-/* Register Page - Link to Login */
-#register-container p {
+.dark-mode #dark-mode-toggle {
+    background-color: #fff;
     color: #333;
 }
 
-#register-container p a {
-    color: #008631;
-    text-decoration: none;
-    font-weight: bold;
+/* Weather Data Styling */
+#temp-div p {
+    font-size: 60px;
+    margin-top: -30px;
 }
 
-#register-container p a:hover {
-    text-decoration: underline;
+#weather-info {
+    font-size: 20px;
+}
+
+/* Weather Icon */
+#weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+    display: none;
+}
+
+/* Hourly Forecast */
+#hourly-forecast {
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.hourly-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+#hourly-heading {
+    color: #fff;
+    margin-top: 10px;
 }
 
 
