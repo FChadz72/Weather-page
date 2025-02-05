@@ -61,6 +61,10 @@
       <i class="fa-solid fa-location-dot"></i>
       <input type="text" id="city" placeholder="ENTER LOCATION" />
       <button onclick="getWeather()">Search</button>
+
+      <!--  Logout Button -->
+  <button id="logout-button">Logout</button>
+      
       <img id="weather-icon" alt="Weather Icon" style="display:none;" />
       <div id="temp-div"></div>
       <div id="weather-info"></div>
@@ -85,8 +89,7 @@
       }
     }
 
-    <!--  Logout Button -->
-  <button id="logout-button">Logout</button>
+    
 
     // This will Attach the logout function to the logout button if it exists, I assume this would be in your css file??
     document.getElementById("logout-button")?.addEventListener("click", logoutUser);
