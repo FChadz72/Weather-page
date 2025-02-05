@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 </head>
 <body>
 
@@ -17,10 +23,24 @@
     <h3>Already have an account? <a href="login.html">Login</a></h3> <!-- Link to login page -->
 
     <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-        const firebaseConfig = { /* your Firebase config */ };
-        const auth = getAuth();
+// Firebase config
+    const firebaseConfig = {
+    apiKey: "AIzaSyBS6cfjByBKIz10ZhmQuaXoyQdw9wiF8_k",
+    authDomain: "weather-app-d5164.firebaseapp.com",
+    projectId: "weather-app-d5164",
+    storageBucket: "weather-app-d5164.appspot.com",
+    messagingSenderId: "230640509044",
+    appId: "1:230640509044:web:69248f831c66f0d660b121"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 
         document.getElementById("register-form").addEventListener("submit", async function(event) {
             event.preventDefault(); 
