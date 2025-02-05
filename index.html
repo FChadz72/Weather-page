@@ -6,35 +6,53 @@
     <title>Weather app</title>
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
-    <script type="module">
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-        if (!user) {
-            alert("You must be logged in!");
-            window.location.href = "login.html";
-        }
-    });
-</script>
+    <!-- Firebase Authentication -->
+    <script type="module">
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                alert("You must be logged in!");
+                window.location.href = "login.html"; // Redirect to login page if not logged in
+            }
+        });
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+
     <div id="Weather-container">
         <div class="search-box">
-           <i class="fa-solid fa-location-dot"></i>
-           <input type="text" id="city" placeholder="ENTER LOCATION">
-           <button onclick="getWeather()">search</button>
-           <img id="weather-icon" alt="Weather Icon">
-              <div id="temp-div"></div>
-              <div id="weather-info"></div>
-              <div id="hourly-forecast"></div>
-        </div>     
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" id="city" placeholder="ENTER LOCATION">
+            <button onclick="getWeather()">Search</button>
+            <img id="weather-icon" alt="Weather Icon">
+            <div id="temp-div"></div>
+            <div id="weather-info"></div>
+            <div id="hourly-forecast"></div>
+        </div>
     </div>
-    <script src="https://kit.fontawesome.com/771e08f4bb.js" crossorigin="anonymous"></script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const auth = getAuth();
+
+        // 🔹 Logout User (for logout button)
+        async function logoutUser() {
+            await signOut(auth);
+            alert("Logged out!");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+
     <script src="./script.js"></script>
 </body>
 </html>
