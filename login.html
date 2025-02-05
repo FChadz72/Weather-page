@@ -13,8 +13,8 @@
         <input type="password" id="password" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>
-    <button onclick="registerUser()">Register</button>
-    <button onclick="logoutUser()">Logout</button>
+
+    <h3>Don't have an account? <button onclick="registerUser()">Register</button></h3>
 
     <!-- Firebase SDK -->
     <script type="module">
@@ -36,21 +36,22 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        // 🔹 Register User
+        // 🔹 Register User (with form)
         async function registerUser() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            const email = prompt("Enter your email:");
+            const password = prompt("Enter your password:");
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
                 alert("User registered successfully!");
             } catch (error) {
-                alert(error.message);
+                alert("Registration failed: " + error.message);
             }
         }
 
         // 🔹 Login User
         document.getElementById("login-form").addEventListener("submit", async function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent page refresh
+
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             try {
@@ -58,7 +59,7 @@
                 alert("Login successful!");
                 window.location.href = "index.html"; // Redirect to weather page
             } catch (error) {
-                alert(error.message);
+                alert("Login failed: " + error.message);
             }
         });
 
@@ -72,3 +73,4 @@
 
 </body>
 </html>
+
