@@ -1,4 +1,4 @@
-/* General Body Styling */
+/* General Styles */
 body {
     background: #008631;
     font-family: 'Kumbh Sans', sans-serif;
@@ -9,15 +9,15 @@ body {
     align-items: center;
 }
 
-/* Main Wrapper to Keep Layout Organized */
+/* Center the main content without affecting buttons */
 #app-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px; /* Adjust to fine-tune positioning */
+    margin-top: 80px; /* Adjust this value as needed */
 }
 
-/* Weather App Styling */
+/* Weather App Container */
 #weather-container {
     background: #fff;
     width: 400px;
@@ -28,99 +28,16 @@ body {
     text-align: center;
 }
 
-/* Search Box Styling */
-.search-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+/* Weather Info */
+#weather-info {
+    font-size: 20px;
 }
 
-/* Input Styling */
-input {
-    width: calc(100% - 16px);
-    padding: 8px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid white;
-    margin-top: 20px;
-    background: #fff;
-    color: #333;
-}
-
-/* Button Styling */
-button {
-    background: #debff4;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100px;
-    font-size: 15px;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #41dc8e;
-}
-
-/* Logout Button */
-#logout-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  background-color: #ff4c4c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#logout-button:hover {
-  background-color: #ff1a1a;
-}
-
-/* Dark Mode Button */
-#dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-.dark-mode #dark-mode-toggle {
-    background-color: #fff;
-    color: #333;
-}
-
-/* Weather Data Display */
 #temp-div p {
     font-size: 60px;
     margin-top: -30px;
 }
 
-#weather-info {
-    font-size: 20px;
-}
-
-/* Weather Icon */
 #weather-icon {
     width: 200px;
     height: 200px;
@@ -130,11 +47,11 @@ button:hover {
 
 /* Hourly Forecast */
 #hourly-forecast {
-    margin-top: 50px;
-    overflow-x: auto;
-    white-space: nowrap;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .hourly-item {
@@ -153,30 +70,143 @@ button:hover {
     margin-bottom: 5px;
 }
 
-#hourly-heading {
-    color: #fff;
-    margin-top: 10px;
+/* Search Box */
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-/* Login & Register Form Styling */
+/* Ensure search input and button align properly */
+.search-box input {
+    flex-grow: 1;
+}
+
+/* Inputs */
+input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-top: 20px;
+    background: #fff;
+    color: #333;
+}
+
+/* Buttons */
+button {
+    background: #debff4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100px;
+    font-size: 15px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #41dc8e;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode #dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Dark Mode Button */
+#dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Logout Button */
+#logout-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Login & Register Page Styling */
 #login-container, #register-container {
     background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
     width: 350px;
-    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 #login-container h2, #register-container h2 {
-    margin-bottom: 20px;
+    color: #008631;
 }
 
 #login-container input, #register-container input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #ccc
+    border: 1px solid #ccc;
+}
+
+#login-container button, #register-container button {
+    width: 100%;
+    background: #008631;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-container button:hover, #register-container button:hover {
+    background: #006622;
+}
+
+/* Register Page - Link to Login */
+#register-container p {
+    color: #333;
+}
+
+#register-container p a {
+    color: #008631;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#register-container p a:hover {
+    text-decoration: underline;
+}
+
 
